@@ -40,6 +40,12 @@ function checkPin() {
   } else {
     error.textContent = "Incorrect PIN";
   }
+
+  if (input === APP_PIN) {
+  sessionStorage.setItem("unlocked", "true");
+  document.getElementById("pinInput").value = ""; // 👈 add this
+  showHome();
+}
 }
 
 // NAVIGATION
