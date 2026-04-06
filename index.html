@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gardening App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PIN SCREEN -->
+<div id="pinScreen" class="screen">
+  <h2>Enter PIN</h2>
+
+  <input 
+    type="password" 
+    id="pinInput" 
+    maxlength="4" 
+    inputmode="numeric" 
+    autofocus 
+  />
+
+  <button onclick="checkPin()">Unlock</button>
+  <p id="pinError"></p>
+</div>
+
+  <!-- HOME SCREEN -->
+ <div id="homeScreen" class="screen hidden">
+  <h2>Gardening App</h2>
+
+  <button onclick="goToAdd()">➕ Add Work Day</button>
+
+  <button onclick="generatePDF()">📄 Generate Invoice</button>
+
+  <h3>Current Invoice</h3>
+  <div id="entriesList"></div>
+
+  <h3>Total: £<span id="invoiceTotal">0</span></h3>
+</div>
+
+  <!-- ADD WORK DAY SCREEN -->
+<div id="addScreen" class="screen hidden">
+  <h2>Add Work Day</h2>
+
+  <!-- CUSTOMER -->
+  <label>Customer:</label>
+  <select id="customerSelect"></select>
+  <button class="action-btn">➕ <span>New Customer</span></button>
+<button class="action-btn delete">❌ <span>Delete Customer</span></button>
+
+  <!-- DATE -->
+  <label>Date:</label>
+  <input type="date" id="dateInput" />
+
+  <!-- WORK TYPE -->
+  <label>Work Type:</label>
+  <div class="work-type">
+  <button id="fullBtn" class="work-btn" onclick="setWorkType('full')">
+    Full Day (£140)
+  </button>
+  <button id="halfBtn" class="work-btn" onclick="setWorkType('half')">
+    Half Day (£70)
+  </button>
+</div>
+
+  <!-- BAGS -->
+  <label>Waste Bags:</label>
+  <div class="bags">
+  <button onclick="changeBags(-1)">-</button>
+  <span id="bagCount">0</span>
+  <button onclick="changeBags(1)">+</button>
+</div>
+
+  <!-- EXTRAS -->
+  <label>Extras:</label>
+  <button onclick="addExtraItem()">➕ Add Item</button>
+  <div id="extraItems"></div>
+
+  <!-- TOTAL -->
+  <h3>Total: £<span id="total">0</span></h3>
+
+  <!-- ACTIONS -->
+  <button onclick="saveDay()">✅ Save Day</button>
+  <button onclick="goHome()">⬅ Back</button>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

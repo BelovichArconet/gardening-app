@@ -1,0 +1,195 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.screen {
+  max-width: 400px;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  margin: 12px 0;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin: 6px 0;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.entry button {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  background: #ff4d4d;
+  color: white;
+}
+
+.work-btn {
+  background: #eee;
+}
+
+.work-btn.active {
+  background: #4CAF50;
+  color: white;
+}
+
+.entry span {
+  text-align: left;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.entry {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+#pinScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#pinScreen.hidden {
+  display: none;
+}
+
+#pinInput {
+  width: 250px;
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+#pinScreen button {
+  width: 250px;
+}
+
+#extraItems div {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+#extraItems input {
+  flex: 1;
+}
+
+#extraItems button {
+  width: auto;
+  padding: 10px;
+}
+
+button {
+  padding: 12px 16px;
+  margin: 6px 0;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Work type buttons */
+.work-btn {
+  width: 48%;
+}
+
+/* Put Full + Half side by side */
+.work-type {
+  display: flex;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+/* Bags layout */
+.bags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bags button {
+  padding: 8px 12px;
+  font-size: 18px;
+}
+
+/* Make save button stand out */
+button[onclick="saveDay()"] {
+  background-color: #2e7d32;
+  color: white;
+  font-weight: bold;
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  input[type="date"] {
+    max-width: 250px;
+  }
+}
+
+#dateInput {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.action-btn span {
+  display: inline-block;
+}
+
+.action-btn.delete {
+  color: #2c6bed; /* keep your blue */
+}
