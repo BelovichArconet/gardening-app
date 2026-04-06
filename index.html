@@ -45,8 +45,13 @@
   <!-- CUSTOMER -->
   <label>Customer:</label>
   <select id="customerSelect"></select>
-  <button class="action-btn">➕ <span>New Customer</span></button>
-<button class="action-btn delete">❌ <span>Delete Customer</span></button>
+  <button class="action-btn" onclick="addNewCustomer()">
+  ➕ <span>New Customer</span>
+</button>
+
+<button class="action-btn delete" onclick="deleteCustomer()">
+  ❌ <span>Delete Customer</span>
+</button>
 
   <!-- DATE -->
   <label>Date:</label>
