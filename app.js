@@ -422,7 +422,7 @@ const colSubtotal = 200;
   const today = new Date().toLocaleDateString("en-GB");
 
   // HEADER
- doc.setFontSize(20);
+ doc.setFontSize(22);
 doc.setFont(undefined, "bold");
 doc.text("INVOICE", 10, y);
 
@@ -430,7 +430,9 @@ doc.setFont(undefined, "normal");
 doc.setFontSize(10);
 
 doc.setFontSize(10);
+doc.setFont(undefined, "bold");
 doc.text("JB Gardening & Tree Care", 200, y, { align: "right" });
+doc.setFont(undefined, "normal");
 doc.text(`Invoice No: ${invoiceNumber}`, 200, y + 6, { align: "right" });
 doc.text(`Date: ${today}`, 200, y + 12, { align: "right" });
 
@@ -441,7 +443,9 @@ y += 15;
   doc.text("Invoice To:", 10, y);
   const customerName = entries.length > 0 ? entries[0].customer : "Customer";
 doc.setFontSize(12);
+doc.setFont(undefined, "bold");
 doc.text(customerName, 10, y + 6);
+doc.setFont(undefined, "normal");
 doc.setFontSize(10);
 
   y += 15;
@@ -557,7 +561,7 @@ doc.line(colSubtotal + 2, tableStartY - 4, colSubtotal + 2, y);
   y += 10;
 
   // TOTAL
-  doc.setFontSize(16);
+  doc.setFontSize(14);
   doc.setDrawColor(150);
 doc.line(130, y - 6, 200, y - 6);
 
@@ -565,13 +569,18 @@ doc.setFont(undefined, "bold");
 doc.setFontSize(14);
 
 doc.text("Total:", colPrice, y, { align: "right" });
+
+doc.setFontSize(16);
 doc.text(`£${runningTotal.toFixed(2)}`, colSubtotal, y, { align: "right" });
+
+doc.setFontSize(14);
 
 doc.setFont(undefined, "normal");
 
   y += 15;
 
   // PAYMENT DETAILS
+doc.setFontSize(9);
 doc.text("Payment details:", 10, y);
 
 y += 6;
@@ -583,7 +592,8 @@ doc.text("Account Number: 7346798", 10, y);
 y += 6;
 doc.text("Sort Code: 20-60-58", 10, y);
 
-y += 10;
+y += 12;
+doc.setFontSize(10);
 doc.setTextColor(255, 0, 0);
 doc.text("All payments to be made within 7 days", 10, y);
 
