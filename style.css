@@ -193,3 +193,11 @@ label {
 .action-btn.delete {
   color: #2c6bed; /* keep your blue */
 }
+
+button {
+  touch-action: manipulation;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
