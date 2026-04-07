@@ -177,6 +177,8 @@ label {
   text-align: center;
   margin: 0 auto;
   display: block;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .action-btn {
