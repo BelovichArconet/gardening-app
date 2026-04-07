@@ -32,20 +32,14 @@ entries = Array.isArray(parsed) ? parsed : [];
 function checkPin() {
   const input = document.getElementById("pinInput").value;
   const error = document.getElementById("pinError");
-  console.log("PIN ENTERED:", input);
 
   if (input === APP_PIN) {
     sessionStorage.setItem("unlocked", "true");
+    document.getElementById("pinInput").value = "";
     showHome();
   } else {
     error.textContent = "Incorrect PIN";
   }
-
-  if (input === APP_PIN) {
-  sessionStorage.setItem("unlocked", "true");
-  document.getElementById("pinInput").value = ""; // 👈 add this
-  showHome();
-}
 }
 
 // NAVIGATION
@@ -120,21 +114,20 @@ function calculateTotal() {
   let total = 0;
 
   if (!workType) {
-  document.getElementById("total").textContent = 0;
-  return;
-}
+    document.getElementById("total").textContent = (0).toFixed(2);
+    return;
+  }
 
-if (workType === "full") total += 140;
-if (workType === "half") total += 70;
+  if (workType === "full") total += 140;
+  if (workType === "half") total += 70;
 
   total += bags * 10;
 
-  // ✅ loop through ALL extra inputs
   document.querySelectorAll(".extra-price").forEach(input => {
     total += parseFloat(input.value) || 0;
   });
 
-  document.getElementById("total").textContent = total;
+  document.getElementById("total").textContent = total.toFixed(2);
 }
 
 // SAVE (for now just logs)
@@ -235,7 +228,7 @@ function renderEntries() {
     // ✅ NEW extras (correct place)
     if (entry.extraItems && entry.extraItems.length > 0) {
       entry.extraItems.forEach(item => {
-        text += ` | ${item.name} (£${item.price})`;
+        text += ` | ${item.name} (£${item.price.toFixed(2)})`;
       });
     }
 
@@ -257,7 +250,7 @@ function renderEntries() {
     total += entry.total;
   });
 
-  totalEl.textContent = total;
+  totalEl.textContent = total.toFixed(2);
 }
 
 //New function 2
@@ -510,8 +503,8 @@ sortedEntries.forEach(entry => {
     runningTotal += price;
 
     doc.text(`${date} - Full Day - General gardening`, 10, y);
-    doc.text(`£${price}`, colPrice, y, { align: "right" });
-doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
+    doc.text(`£${price.toFixed(2)}`, colPrice, y, { align: "right" });
+doc.text(`£${runningTotal.toFixed(2)}`, colSubtotal, y, { align: "right" });
 
     y += 5;
   }
@@ -522,8 +515,8 @@ doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
     runningTotal += price;
 
     doc.text(`${date} - Half Day - General gardening`, 10, y);
-    doc.text(`£${price}`, colPrice, y, { align: "right" });
-doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
+    doc.text(`£${price.toFixed(2)}`, colPrice, y, { align: "right" });
+doc.text(`£${runningTotal.toFixed(2)}`, colSubtotal, y, { align: "right" });
 
     y += 5;
   }
@@ -534,8 +527,8 @@ doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
     runningTotal += price;
 
     doc.text(`${date} - ${entry.bags} bags of green waste`, 10, y);
-    doc.text(`£${price}`, colPrice, y, { align: "right" });
-doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
+    doc.text(`£${price.toFixed(2)}`, colPrice, y, { align: "right" });
+doc.text(`£${runningTotal.toFixed(2)}`, colSubtotal, y, { align: "right" });
 
     y += 5;
   }
@@ -547,8 +540,8 @@ doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
       runningTotal += price;
 
       doc.text(`${date} - ${item.name}`, 10, y);
-      doc.text(`£${price}`, colPrice, y, { align: "right" });
-doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
+      doc.text(`£${price.toFixed(2)}`, colPrice, y, { align: "right" });
+doc.text(`£${runningTotal.toFixed(2)}`, colSubtotal, y, { align: "right" });
 
       y += 5;
     });
@@ -572,7 +565,7 @@ doc.setFont(undefined, "bold");
 doc.setFontSize(14);
 
 doc.text("Total:", colPrice, y, { align: "right" });
-doc.text(`£${runningTotal}`, colSubtotal, y, { align: "right" });
+doc.text(`£${runningTotal.toFixed(2)}`, colSubtotal, y, { align: "right" });
 
 doc.setFont(undefined, "normal");
 
