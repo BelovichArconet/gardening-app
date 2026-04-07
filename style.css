@@ -193,7 +193,7 @@ label {
 }
 
 .action-btn.delete {
-  color: #2c6bed; /* keep your blue */
+  color: #d32f2f;
 }
 
 button {
@@ -202,4 +202,16 @@ button {
 
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 22px;
+  line-height: 1;
 }
