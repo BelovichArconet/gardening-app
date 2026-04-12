@@ -422,7 +422,7 @@ const colSubtotal = 200;
   const today = new Date().toLocaleDateString("en-GB");
 
   // HEADER
- doc.setFontSize(22);
+ doc.setFontSize(24);
 doc.setFont(undefined, "bold");
 doc.text("INVOICE", 10, y);
 
