@@ -215,3 +215,8 @@ button {
   font-size: 22px;
   line-height: 1;
 }
+
+#customerSelect {
+  display: block;
+  width: 100%;
+}
