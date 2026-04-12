@@ -269,6 +269,12 @@ function deleteEntry(index) {
   renderEntries();
 }
 
+function resetApp() {
+  localStorage.clear();
+  sessionStorage.clear();
+  location.reload();
+}
+
 function addExtraItem() {
   const container = document.getElementById("extraItems");
 
