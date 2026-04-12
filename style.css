@@ -219,9 +219,6 @@ button {
 #customerSelect {
   display: block;
   width: 100%;
-}
-
-#customerSelect {
   text-align: center;
   text-align-last: center; /* important for dropdown text */
 }
