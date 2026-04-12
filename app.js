@@ -308,6 +308,7 @@ function formatDate(dateStr) {
 }
 
 function getInvoiceNumber() {
+  if (entries.length === 0) return "0000-000";
   const latestDate = entries.reduce((latest, e) => {
   const d = new Date(e.date);
   return d > latest ? d : latest;
