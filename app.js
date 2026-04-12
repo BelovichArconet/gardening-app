@@ -56,14 +56,15 @@ function goToAdd() {
 
   document.getElementById("dateInput").valueAsDate = new Date();
 
-  renderCustomers();
+renderCustomers();
 
-  document.getElementById("extraItems").innerHTML = "";
+document.getElementById("extraItems").innerHTML = "";
 
-  // ✅ Default selections
-  const select = document.getElementById("customerSelect");
-if (select.options.length > 0) {
-  select.selectedIndex = 0;
+// ✅ Force default customer properly
+const select = document.getElementById("customerSelect");
+
+if (customers.length > 0) {
+  select.value = customers[0];
 }
   workType = null;
 
