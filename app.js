@@ -205,6 +205,8 @@ document.querySelectorAll(".work-btn").forEach(btn => {
   document.getElementById("bagCount").textContent = 0;
   calculateTotal();
 
+  document.getElementById("dateInput").valueAsDate = new Date();
+
   goHome();
 }
 
