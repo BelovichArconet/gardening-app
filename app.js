@@ -37,6 +37,7 @@ function checkPin() {
     sessionStorage.setItem("unlocked", "true");
     document.getElementById("pinInput").value = "";
     showHome();
+    renderEntries();
   } else {
     error.textContent = "Incorrect PIN";
   }
